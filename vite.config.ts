@@ -2,8 +2,13 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
+// GitHub Pages 프로젝트 사이트(https://<user>.github.io/gunhak-yeongye-project/)로
+// 배포하기 위해 빌드시에만 하위 경로 base를 사용한다. 로컬 dev 서버는 '/' 그대로.
+const BASE = process.env.GH_PAGES === 'true' ? '/gunhak-yeongye-project/' : '/';
+
 // https://vite.dev/config/
 export default defineConfig({
+  base: BASE,
   plugins: [
     react(),
     VitePWA({
@@ -17,7 +22,8 @@ export default defineConfig({
         background_color: '#0a1220',
         display: 'standalone',
         orientation: 'portrait',
-        start_url: '/',
+        start_url: BASE,
+        scope: BASE,
         icons: [
           { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
           { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png' },

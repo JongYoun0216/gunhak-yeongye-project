@@ -6,6 +6,15 @@
 
 설치형 앱 없이 브라우저에서 바로 실행되는 **PWA(Progressive Web App)** MVP입니다.
 
+### 📱 휴대폰으로 바로 해보기
+
+**https://jongyoun0216.github.io/gunhak-yeongye-project/**
+
+GitHub Pages(HTTPS)로 배포되어 있어 GPS·카메라 권한이 정상 동작합니다. 휴대폰 브라우저로 위
+주소를 열고 공유 메뉴에서 **"홈 화면에 추가"** 를 하면 설치형 앱처럼 아이콘으로 실행할 수
+있습니다. `main` 브랜치에 새로 푸시해도 이 주소는 자동 갱신되지 않으며, 재배포하려면
+`GH_PAGES=true npm run build && npx gh-pages -d dist` 를 실행하세요.
+
 ---
 
 ## 1. 이 저장소가 만들어진 방식
