@@ -76,7 +76,7 @@ export default function ArMission({ mission, onExit }: { mission: MissionDef; on
       {!arActive && !done && (
         <div className="card" style={{ textAlign: 'center', padding: 22 }}>
           <div style={{ fontSize: 34 }}>🧩</div>
-          <p style={{ fontSize: 12.5, color: 'var(--ink-300)', margin: '10px 0' }}>
+          <p style={{ fontSize: 12.5, color: 'var(--fg-2)', margin: '10px 0' }}>
             AR 카메라로 마커를 비추면 조각이 나타납니다. 약 2초간 유지하면 자동으로 수거됩니다.
           </p>
           <button className="btn btn-secondary btn-sm" onClick={() => setShowMarkerHelp((v) => !v)}>
@@ -85,7 +85,7 @@ export default function ArMission({ mission, onExit }: { mission: MissionDef; on
           {showMarkerHelp && (
             <div style={{ marginTop: 12 }}>
               <img src={HIRO_MARKER_IMG} alt="AR 마커" style={{ width: 140, borderRadius: 8 }} />
-              <p style={{ fontSize: 10, color: 'var(--ink-500)', marginTop: 6 }}>
+              <p style={{ fontSize: 10, color: 'var(--muted)', marginTop: 6 }}>
                 다른 화면/인쇄물로 이 마커를 띄우고 카메라로 비추세요.
               </p>
             </div>
@@ -96,7 +96,7 @@ export default function ArMission({ mission, onExit }: { mission: MissionDef; on
       {arActive && (!aframeReady || !arjsReady) && (
         <div className="card" style={{ textAlign: 'center', padding: 30 }}>
           <div className="spinner" style={{ margin: '0 auto' }} />
-          <p style={{ fontSize: 12, color: 'var(--ink-500)', marginTop: 10 }}>AR 엔진 불러오는 중...</p>
+          <p style={{ fontSize: 12, color: 'var(--muted)', marginTop: 10 }}>AR 엔진 불러오는 중...</p>
         </div>
       )}
 
@@ -112,7 +112,7 @@ export default function ArMission({ mission, onExit }: { mission: MissionDef; on
                 <a-marker preset="hiro">
                   <a-entity
                     geometry="primitive: box; width:0.5; height:0.5; depth:0.5"
-                    material="color:#e8b923; metalness:0.3; roughness:0.4"
+                    material="color:#0071e3; metalness:0.3; roughness:0.4"
                     position="0 0.3 0"
                     animation="property: rotation; to: 0 360 0; loop: true; dur: 4000; easing: linear"
                   ></a-entity>
@@ -127,7 +127,7 @@ export default function ArMission({ mission, onExit }: { mission: MissionDef; on
               <div className="progressbar-track">
                 <div className="progressbar-fill" style={{ width: `${progressPct}%` }} />
               </div>
-              <p style={{ fontSize: 11, textAlign: 'center', marginTop: 4, color: 'var(--gold-400)' }}>
+              <p style={{ fontSize: 11, textAlign: 'center', marginTop: 4, color: 'var(--accent)' }}>
                 조각 수거 중... 카메라를 고정하세요
               </p>
             </div>
@@ -136,9 +136,9 @@ export default function ArMission({ mission, onExit }: { mission: MissionDef; on
       )}
 
       {done && (
-        <div className="card fade-in" style={{ textAlign: 'center', padding: 22, borderColor: 'rgba(76,175,109,0.4)' }}>
+        <div className="card fade-in" style={{ textAlign: 'center', padding: 22, borderColor: 'var(--success-tint)' }}>
           <div style={{ fontSize: 34 }}>✅</div>
-          <p style={{ fontWeight: 700, color: 'var(--success-500)', marginTop: 8 }}>진짜 조각 확보!</p>
+          <p style={{ fontWeight: 700, color: 'var(--success)', marginTop: 8 }}>진짜 조각 확보!</p>
         </div>
       )}
 

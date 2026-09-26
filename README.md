@@ -67,7 +67,16 @@ PWA(Service Worker + Web App Manifest)가 포함되어 있어 `npm run build && 
 
 ## 3. 화면 구성
 
-레퍼런스 UI 시안(2D 벡터 탐험형 · 포켓몬고 스타일)을 기준으로 구현했습니다.
+레퍼런스 UI 시안의 5개 화면 구성(시작 → 지도 → 도착 → 미션 → 완료)을 따르되, 시각 언어는
+**Apple Reference Design System**을 기준으로 재설계했습니다 (`src/styles/theme.css`).
+
+- 팔레트: Fog `#f5f5f7` / White / Foreground `#1d1d1f`, 단일 강조색 Apple Blue `#0071e3`
+  (링크 `#0066cc`, 다크 표면 링크 `#2997ff`)
+- 버튼: 980px pill, 대형 44px(17px) · 컴팩트 36px(14px) 두 규격만 사용
+- 서피스: flat 카드(그림자 없음), 시작/미션 완료는 Black 몰입형 표면, 나머지는 Fog 캔버스
+- Liquid Glass 방향: 하단 내비게이션·상태 레이어만 반투명 블러, 콘텐츠는 불투명 유지
+- 타이포: `-apple-system`/SF Pro 스택. SF Pro는 Apple 기기 시스템 폰트로 렌더링되며 라이선스상
+  폰트 파일은 번들하지 않고 그 외 기기에서는 시스템·한글 폰트로 폴백
 
 | # | 화면 | 파일 |
 |---|---|---|

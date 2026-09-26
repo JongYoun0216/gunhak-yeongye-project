@@ -14,7 +14,7 @@ export default function MissionListPanel() {
   return (
     <div className="screen-scroll fade-in">
       <h3 style={{ fontSize: 14, margin: '0 0 4px' }}>{wp.name}</h3>
-      <p style={{ fontSize: 11, color: 'var(--ink-500)', marginBottom: 10 }}>{wp.description}</p>
+      <p style={{ fontSize: 11, color: 'var(--muted)', marginBottom: 10 }}>{wp.description}</p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
         {wp.missions.map((m) => {
@@ -26,7 +26,7 @@ export default function MissionListPanel() {
               <span style={{ fontSize: 18 }}>{done ? '✅' : meta.icon}</span>
               <div style={{ flex: 1 }}>
                 <div style={{ fontSize: 12.5, fontWeight: 700 }}>{m.title}</div>
-                <div style={{ fontSize: 11, color: 'var(--ink-500)' }}>
+                <div style={{ fontSize: 11, color: 'var(--muted)' }}>
                   {meta.nameKo} 담당 · {m.points}점 · 약 {m.estMinutes}분
                 </div>
               </div>
@@ -34,15 +34,15 @@ export default function MissionListPanel() {
           );
         })}
         {wp.missions.length === 0 && (
-          <div className="card" style={{ padding: 12, fontSize: 12, color: 'var(--ink-300)' }}>
+          <div className="card" style={{ padding: 12, fontSize: 12, color: 'var(--fg-2)' }}>
             최종 거점 — 전원 참여 단결 포즈 미션만 진행합니다.
           </div>
         )}
-        <div className="card" style={{ display: 'flex', gap: 10, padding: '10px 12px', borderColor: 'rgba(232,185,35,0.4)' }}>
+        <div className="card" style={{ display: 'flex', gap: 10, padding: '10px 12px', borderColor: 'var(--accent-tint)' }}>
           <span style={{ fontSize: 18 }}>{p?.saluteDone ? '✅' : '🫡'}</span>
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 12.5, fontWeight: 700 }}>전원 경례</div>
-            <div style={{ fontSize: 11, color: 'var(--ink-500)' }}>
+            <div style={{ fontSize: 11, color: 'var(--muted)' }}>
               지휘관 주도 · 정확도 {wp.saluteThreshold}% 이상 · 40점
             </div>
           </div>

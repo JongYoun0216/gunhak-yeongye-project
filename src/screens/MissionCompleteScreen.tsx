@@ -27,8 +27,8 @@ export default function MissionCompleteScreen() {
       <div style={{ textAlign: 'center', marginTop: 20 }}>
         <div style={{ fontSize: 56 }}>🏅</div>
         <h2 style={{ margin: '10px 0 2px', letterSpacing: 1 }}>MISSION COMPLETE</h2>
-        <p style={{ fontSize: 13, color: 'var(--khaki-400)' }}>{wp.name} 미션을 완료했습니다!</p>
-        <div style={{ fontSize: 30, fontWeight: 800, color: 'var(--gold-400)', marginTop: 14 }}>
+        <p style={{ fontSize: 13, color: 'var(--link)' }}>{wp.name} 미션을 완료했습니다!</p>
+        <div style={{ fontSize: 48, fontWeight: 600, lineHeight: 1.1, color: 'var(--fg)', marginTop: 14 }}>
           +{earned} POINT
         </div>
 
@@ -55,7 +55,7 @@ export default function MissionCompleteScreen() {
 function Row({ label, value }: { label: string; value: string }) {
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', fontSize: 13 }}>
-      <span style={{ color: 'var(--ink-500)' }}>{label}</span>
+      <span style={{ color: 'var(--muted)' }}>{label}</span>
       <span style={{ fontWeight: 700 }}>{value}</span>
     </div>
   );

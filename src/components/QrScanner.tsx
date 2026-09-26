@@ -51,7 +51,7 @@ export default function QrScanner({
     <div>
       <div id={elId.current} className="camera-frame" style={{ position: 'relative' }} />
       {status === 'error' && (
-        <p style={{ color: 'var(--danger-500)', fontSize: 12, marginTop: 8 }}>
+        <p style={{ color: 'var(--danger)', fontSize: 12, marginTop: 8 }}>
           카메라 접근 실패: {errorMsg || '권한을 확인하세요.'}
         </p>
       )}

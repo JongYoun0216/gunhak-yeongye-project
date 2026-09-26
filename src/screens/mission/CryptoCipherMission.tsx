@@ -38,21 +38,21 @@ export default function CryptoCipherMission({ mission, onExit }: { mission: Miss
       />
 
       {feedback === 'wrong' && (
-        <p className="fade-in" style={{ color: 'var(--danger-500)', fontSize: 12, marginTop: 8 }}>
+        <p className="fade-in" style={{ color: 'var(--danger)', fontSize: 12, marginTop: 8 }}>
           오답입니다. 다시 시도해보세요.
         </p>
       )}
 
       {hintLevel >= 1 && !done && (
-        <div className="card fade-in" style={{ marginTop: 12, borderColor: 'rgba(232,185,35,0.3)' }}>
-          <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--gold-400)' }}>💡 방향성 힌트</div>
-          <p style={{ fontSize: 12, color: 'var(--ink-300)', marginTop: 4 }}>{mission.hint1}</p>
+        <div className="card fade-in" style={{ marginTop: 12, borderColor: 'var(--accent-tint)' }}>
+          <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--accent)' }}>💡 방향성 힌트</div>
+          <p style={{ fontSize: 12, color: 'var(--fg-2)', marginTop: 4 }}>{mission.hint1}</p>
         </div>
       )}
       {hintLevel >= 2 && !done && (
-        <div className="card fade-in" style={{ marginTop: 8, borderColor: 'rgba(224,86,79,0.35)' }}>
-          <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--danger-500)' }}>🔑 결정적 힌트 (-10점)</div>
-          <p style={{ fontSize: 12, color: 'var(--ink-300)', marginTop: 4 }}>{mission.hint2}</p>
+        <div className="card fade-in" style={{ marginTop: 8, borderColor: 'var(--danger-tint)' }}>
+          <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--danger)' }}>🔑 결정적 힌트 (-10점)</div>
+          <p style={{ fontSize: 12, color: 'var(--fg-2)', marginTop: 4 }}>{mission.hint2}</p>
         </div>
       )}
       {hintLevel === 0 && !done && !commandAskedHint && (
@@ -66,8 +66,8 @@ export default function CryptoCipherMission({ mission, onExit }: { mission: Miss
       )}
 
       {done && (
-        <div className="card fade-in" style={{ marginTop: 12, borderColor: 'rgba(76,175,109,0.4)' }}>
-          <div style={{ fontWeight: 700, color: 'var(--success-500)', fontSize: 13 }}>✅ 해독 성공</div>
+        <div className="card fade-in" style={{ marginTop: 12, borderColor: 'var(--success-tint)' }}>
+          <div style={{ fontWeight: 700, color: 'var(--success)', fontSize: 13 }}>✅ 해독 성공</div>
         </div>
       )}
 

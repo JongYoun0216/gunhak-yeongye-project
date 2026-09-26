@@ -23,7 +23,7 @@ export default function ScoutLocateMission({ mission, onExit }: { mission: Missi
     <MissionShell mission={mission} onClose={onExit}>
       <div className="card" style={{ textAlign: 'center', padding: 26 }}>
         <div style={{ fontSize: 40 }}>{found ? '📡' : scanning ? '🛰️' : '🧭'}</div>
-        <p style={{ fontSize: 12.5, color: 'var(--ink-300)', marginTop: 10 }}>
+        <p style={{ fontSize: 12.5, color: 'var(--fg-2)', marginTop: 10 }}>
           {found
             ? '조각 위치를 탐지했다. 팀에 좌표를 공유했다.'
             : scanning

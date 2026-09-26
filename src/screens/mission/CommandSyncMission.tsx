@@ -49,22 +49,22 @@ export default function CommandSyncMission({ mission, onExit }: { mission: Missi
   return (
     <MissionShell mission={mission} onClose={onExit}>
       <div className="card" style={{ textAlign: 'center', padding: 32 }}>
-        <div style={{ fontSize: 40, fontWeight: 800, color: callIndex >= CALLS.length ? 'var(--gold-400)' : 'var(--ink-100)' }}>
+        <div style={{ fontSize: 40, fontWeight: 800, color: callIndex >= CALLS.length ? 'var(--accent)' : 'var(--fg)' }}>
           {callIndex < 0 ? '준비...' : callIndex >= CALLS.length ? 'GO!' : CALLS[callIndex]}
         </div>
-        <p style={{ fontSize: 12, color: 'var(--ink-500)', marginTop: 10 }}>
+        <p style={{ fontSize: 12, color: 'var(--muted)', marginTop: 10 }}>
           구령이 끝나는 순간(GO!) 아래 버튼을 눌러 팀의 호흡을 맞추세요. (0.5초 이내)
         </p>
       </div>
 
       {result === 'success' && (
-        <div className="card fade-in" style={{ marginTop: 12, borderColor: 'rgba(76,175,109,0.4)' }}>
-          <div style={{ fontWeight: 700, color: 'var(--success-500)' }}>✅ 완벽한 싱크로!</div>
+        <div className="card fade-in" style={{ marginTop: 12, borderColor: 'var(--success-tint)' }}>
+          <div style={{ fontWeight: 700, color: 'var(--success)' }}>✅ 완벽한 싱크로!</div>
         </div>
       )}
       {result === 'fail' && tries < 3 && (
-        <div className="card fade-in" style={{ marginTop: 12, borderColor: 'rgba(224,86,79,0.35)' }}>
-          <div style={{ fontWeight: 700, color: 'var(--danger-500)' }}>타이밍이 어긋났습니다. 다시!</div>
+        <div className="card fade-in" style={{ marginTop: 12, borderColor: 'var(--danger-tint)' }}>
+          <div style={{ fontWeight: 700, color: 'var(--danger)' }}>타이밍이 어긋났습니다. 다시!</div>
         </div>
       )}
 

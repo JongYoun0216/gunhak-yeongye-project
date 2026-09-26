@@ -32,17 +32,17 @@ export default function DebriefScreen() {
   return (
     <div className="screen-scroll fade-in" style={{ padding: '20px 20px 90px' }}>
       <div style={{ textAlign: 'center' }}>
-        <div className="pill" style={{ background: 'rgba(232,185,35,0.15)', color: 'var(--gold-400)' }}>
+        <div className="pill" style={{ background: 'var(--accent-tint)', color: 'var(--accent)' }}>
           📜 디지털 실록
         </div>
         <h2 style={{ margin: '10px 0 2px' }}>{teamName || '우리 팀'}의 작전 기록</h2>
-        <p style={{ fontSize: 12, color: 'var(--ink-500)' }}>총 소요시간 {formatClock(elapsed)}</p>
+        <p style={{ fontSize: 12, color: 'var(--muted)' }}>총 소요시간 {formatClock(elapsed)}</p>
       </div>
 
-      <div className="hero-card" style={{ textAlign: 'center', marginTop: 16 }}>
-        <div style={{ fontSize: 12, color: 'var(--ink-300)' }}>최종 점수</div>
-        <div style={{ fontSize: 42, fontWeight: 800, color: 'var(--gold-400)' }}>{totalScore}</div>
-        <div style={{ fontSize: 11, color: 'var(--ink-500)' }}>/ 1,000점 만점 (구성표는 §12 기준 예시)</div>
+      <div className="hero-card dark-surface" style={{ textAlign: 'center', marginTop: 16, background: '#000', color: 'var(--fg)' }}>
+        <div style={{ fontSize: 12, color: 'var(--fg-2)' }}>최종 점수</div>
+        <div style={{ fontSize: 56, fontWeight: 600, lineHeight: 1.1, color: 'var(--fg)' }}>{totalScore}</div>
+        <div style={{ fontSize: 11, color: 'var(--muted)' }}>/ 1,000점 만점 (구성표는 §12 기준 예시)</div>
       </div>
 
       {photos.length > 0 && (
@@ -52,7 +52,7 @@ export default function DebriefScreen() {
             {photos.map((e) => (
               <div key={e.id} className="card" style={{ padding: 6 }}>
                 <img src={e.photo} alt={e.note} style={{ width: '100%', borderRadius: 8, display: 'block' }} />
-                <div style={{ fontSize: 10, color: 'var(--ink-500)', marginTop: 4 }}>
+                <div style={{ fontSize: 10, color: 'var(--muted)', marginTop: 4 }}>
                   {getWaypoint(e.waypointId ?? '')?.name ?? ''}
                 </div>
               </div>
@@ -68,7 +68,7 @@ export default function DebriefScreen() {
             <span style={{ fontSize: 16 }}>{TYPE_ICON[e.type] ?? '•'}</span>
             <div style={{ flex: 1 }}>
               <div style={{ fontSize: 12.5 }}>{e.note}</div>
-              <div style={{ fontSize: 10, color: 'var(--ink-500)', marginTop: 2 }}>
+              <div style={{ fontSize: 10, color: 'var(--muted)', marginTop: 2 }}>
                 {new Date(e.ts).toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
               </div>
             </div>
@@ -80,8 +80,8 @@ export default function DebriefScreen() {
       <div className="card">
         {scoreEvents.map((e) => (
           <div key={e.id} style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 12.5 }}>
-            <span style={{ color: 'var(--ink-300)' }}>{e.label}</span>
-            <span style={{ fontWeight: 700, color: e.delta >= 0 ? 'var(--success-500)' : 'var(--danger-500)' }}>
+            <span style={{ color: 'var(--fg-2)' }}>{e.label}</span>
+            <span style={{ fontWeight: 700, color: e.delta >= 0 ? 'var(--success)' : 'var(--danger)' }}>
               {e.delta >= 0 ? '+' : ''}
               {e.delta}
             </span>
@@ -112,6 +112,6 @@ export default function DebriefScreen() {
 
 function SectionTitle({ text }: { text: string }) {
   return (
-    <div style={{ fontSize: 13, fontWeight: 700, margin: '20px 0 10px', color: 'var(--khaki-400)' }}>{text}</div>
+    <div style={{ fontSize: 17, fontWeight: 600, margin: '24px 0 10px', color: 'var(--fg)' }}>{text}</div>
   );
 }

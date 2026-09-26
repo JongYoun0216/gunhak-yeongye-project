@@ -137,14 +137,14 @@ export default function SaluteMission({ waypointId, onExit }: { waypointId: stri
           ✕
         </button>
         <div>
-          <div style={{ fontSize: 11, color: 'var(--ink-500)' }}>🫡 지휘관 주도 · 전원 참여</div>
+          <div style={{ fontSize: 11, color: 'var(--muted)' }}>🫡 지휘관 주도 · 전원 참여</div>
           <div style={{ fontSize: 15, fontWeight: 800 }}>
             {isFinal ? '전술 대형 · 단결 포즈' : '전원 경례'}
           </div>
         </div>
       </div>
 
-      <p style={{ fontSize: 12.5, color: 'var(--ink-300)', margin: '12px 0' }}>
+      <p style={{ fontSize: 12.5, color: 'var(--fg-2)', margin: '12px 0' }}>
         {isFinal
           ? '팀원 전원이 카메라 앞에 모여 대형을 갖추고 포즈를 취하세요.'
           : '팀원 전원이 카메라 앞에서 경례 자세를 취하세요. Vision AI가 자세 정확도를 채점합니다.'}
@@ -156,7 +156,7 @@ export default function SaluteMission({ waypointId, onExit }: { waypointId: stri
         </button>
       )}
 
-      {error && <p style={{ color: 'var(--danger-500)', fontSize: 12, marginTop: 8 }}>{error}</p>}
+      {error && <p style={{ color: 'var(--danger)', fontSize: 12, marginTop: 8 }}>{error}</p>}
 
       {cameraOn && outcome === 'none' && (
         <>
@@ -164,10 +164,10 @@ export default function SaluteMission({ waypointId, onExit }: { waypointId: stri
             <video ref={videoRef} autoPlay playsInline muted style={{ transform: 'scaleX(-1)' }} />
           </div>
           <div className="card" style={{ marginTop: 10, textAlign: 'center' }}>
-            <div style={{ fontSize: 11, color: 'var(--ink-500)' }}>
+            <div style={{ fontSize: 11, color: 'var(--muted)' }}>
               실시간 정확도 {isFinal ? `· 감지 인원 ${peopleCount}명` : ''}
             </div>
-            <div style={{ fontSize: 32, fontWeight: 800, color: liveScore >= wp.saluteThreshold ? 'var(--success-500)' : 'var(--gold-400)' }}>
+            <div style={{ fontSize: 32, fontWeight: 800, color: liveScore >= wp.saluteThreshold ? 'var(--success)' : 'var(--accent)' }}>
               {liveScore}%
             </div>
             <div className="progressbar-track" style={{ marginTop: 6 }}>
@@ -181,9 +181,9 @@ export default function SaluteMission({ waypointId, onExit }: { waypointId: stri
       )}
 
       {outcome === 'fail' && (
-        <div className="card fade-in" style={{ marginTop: 12, borderColor: 'rgba(224,86,79,0.35)', textAlign: 'center' }}>
-          <div style={{ fontWeight: 700, color: 'var(--danger-500)' }}>정확도 {liveScore}% — 기준 미달</div>
-          <p style={{ fontSize: 12, color: 'var(--ink-300)', marginTop: 6 }}>
+        <div className="card fade-in" style={{ marginTop: 12, borderColor: 'var(--danger-tint)', textAlign: 'center' }}>
+          <div style={{ fontWeight: 700, color: 'var(--danger)' }}>정확도 {liveScore}% — 기준 미달</div>
+          <p style={{ fontSize: 12, color: 'var(--fg-2)', marginTop: 6 }}>
             {wp.saluteThreshold}% 이상이 필요합니다. 자세를 정돈하고 다시 시도하세요.
           </p>
           <button className="btn btn-secondary btn-sm" style={{ marginTop: 10 }} onClick={() => setOutcome('none')}>
@@ -193,9 +193,9 @@ export default function SaluteMission({ waypointId, onExit }: { waypointId: stri
       )}
 
       {outcome === 'pass' && (
-        <div className="card fade-in" style={{ marginTop: 12, borderColor: 'rgba(76,175,109,0.4)', textAlign: 'center', padding: 20 }}>
+        <div className="card fade-in" style={{ marginTop: 12, borderColor: 'var(--success-tint)', textAlign: 'center', padding: 20 }}>
           <div style={{ fontSize: 34 }}>🫡</div>
-          <div style={{ fontWeight: 800, color: 'var(--success-500)', marginTop: 6, fontSize: 16 }}>
+          <div style={{ fontWeight: 800, color: 'var(--success)', marginTop: 6, fontSize: 16 }}>
             경례 성공! (정확도 {liveScore}%)
           </div>
           <button className="btn btn-success" style={{ marginTop: 14 }} onClick={handleContinue}>

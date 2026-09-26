@@ -38,7 +38,7 @@ export default function TeamSetupScreen() {
 
       {!created ? (
         <>
-          <label style={{ fontSize: 12, color: 'var(--ink-300)', marginTop: 14 }}>작전팀 이름</label>
+          <label style={{ fontSize: 12, color: 'var(--fg-2)', marginTop: 14 }}>작전팀 이름</label>
           <input
             className="input-field"
             style={{ marginTop: 6 }}
@@ -48,7 +48,7 @@ export default function TeamSetupScreen() {
           />
 
           <div className="divider" />
-          <p style={{ fontSize: 12, color: 'var(--ink-300)' }}>
+          <p style={{ fontSize: 12, color: 'var(--fg-2)' }}>
             4대 전술 클래스에 팀원을 배정하세요. 역할은 작전 종료까지 고정됩니다.
           </p>
 
@@ -61,9 +61,9 @@ export default function TeamSetupScreen() {
                     <span style={{ fontSize: 18 }}>{meta.icon}</span>
                     <div>
                       <div style={{ fontWeight: 700, fontSize: 13 }}>
-                        {meta.nameKo} <span style={{ color: 'var(--ink-500)', fontWeight: 400 }}>({meta.code})</span>
+                        {meta.nameKo} <span style={{ color: 'var(--muted)', fontWeight: 400 }}>({meta.code})</span>
                       </div>
-                      <div style={{ fontSize: 11, color: 'var(--ink-500)' }}>{meta.summary}</div>
+                      <div style={{ fontSize: 11, color: 'var(--muted)' }}>{meta.summary}</div>
                     </div>
                   </div>
                   <input
@@ -88,7 +88,7 @@ export default function TeamSetupScreen() {
           <div className="card" style={{ padding: 24, display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
             <QrCode value={`hoguk-silrok://join/${teamCode}`} />
             <div style={{ fontSize: 22, fontWeight: 800, letterSpacing: 3 }}>{teamCode}</div>
-            <p style={{ fontSize: 12, color: 'var(--ink-300)', maxWidth: 240 }}>
+            <p style={{ fontSize: 12, color: 'var(--fg-2)', maxWidth: 240 }}>
               팀원은 이 QR 또는 참가 코드로 입장합니다. (프로토타입은 1개 기기에서 4개 역할 탭을 전환하며 플레이합니다.)
             </p>
           </div>

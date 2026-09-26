@@ -12,13 +12,13 @@ import RecordPanel from '../components/RecordPanel';
 import MissionListPanel from '../components/MissionListPanel';
 
 function divIcon(label: string, tone: 'you' | 'active' | 'locked' | 'done') {
-  const bg = { you: '#4fb2e8', active: '#e8b923', locked: '#3a4a6b', done: '#4caf6d' }[tone];
+  const bg = { you: '#0071e3', active: '#1d1d1f', locked: '#c7c7cc', done: '#34c759' }[tone];
   return L.divIcon({
     html: `<div style="
       width:34px;height:34px;border-radius:50%;background:${bg};
       display:flex;align-items:center;justify-content:center;
       box-shadow:0 4px 10px rgba(0,0,0,.45);border:2px solid rgba(255,255,255,.85);
-      font-size:16px;">${label}</div>`,
+      font-size:15px;font-weight:600;color:#fff;font-family:-apple-system,system-ui,sans-serif;">${label}</div>`,
     className: '',
     iconSize: [34, 34],
     iconAnchor: [17, 17],
@@ -75,10 +75,10 @@ export default function MapScreen() {
   return (
     <div className="screen" style={{ padding: '14px 14px 0' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 4px' }}>
-        <div style={{ fontSize: 12, color: 'var(--ink-300)' }}>
+        <div style={{ fontSize: 12, color: 'var(--fg-2)' }}>
           {completedCount}/{WAYPOINTS.length} 거점 완료
         </div>
-        <div style={{ fontSize: 13, fontWeight: 700, color: remainingMs < 600000 ? 'var(--danger-500)' : 'var(--gold-400)' }}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: remainingMs < 600000 ? 'var(--danger)' : 'var(--accent)' }}>
           ⏱ {formatClock(remainingMs)}
         </div>
       </div>
@@ -107,7 +107,7 @@ export default function MapScreen() {
                 const st = progress[w.id]?.status ?? 'locked';
                 const tone = st === 'completed' ? 'done' : st === 'active' ? 'active' : 'locked';
                 return (
-                  <Marker key={w.id} position={[w.lat, w.lng]} icon={divIcon(w.shortName.slice(0, 2), tone)}>
+                  <Marker key={w.id} position={[w.lat, w.lng]} icon={divIcon(String(w.order), tone)}>
                     <Tooltip>{w.name}</Tooltip>
                   </Marker>
                 );
@@ -118,14 +118,14 @@ export default function MapScreen() {
                     [you.lat, you.lng],
                     [activeWaypoint.lat, activeWaypoint.lng],
                   ]}
-                  pathOptions={{ color: '#e8b923', weight: 3, dashArray: '6 8' }}
+                  pathOptions={{ color: '#0071e3', weight: 3, dashArray: '6 8' }}
                 />
               )}
             </MapContainer>
           </div>
 
           {error && (
-            <p style={{ fontSize: 11, color: 'var(--danger-500)', marginTop: 6 }}>
+            <p style={{ fontSize: 11, color: 'var(--danger)', marginTop: 6 }}>
               위치 접근 실패: {error} (데모 모드로 계속 진행할 수 있습니다)
             </p>
           )}
@@ -133,9 +133,9 @@ export default function MapScreen() {
           <div className="card" style={{ marginTop: 12, marginBottom: 10 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
-                <div style={{ fontSize: 11, color: 'var(--ink-500)' }}>다음 거점</div>
+                <div style={{ fontSize: 11, color: 'var(--muted)' }}>다음 거점</div>
                 <div style={{ fontSize: 15, fontWeight: 800 }}>{activeWaypoint.name}</div>
-                <div style={{ fontSize: 12, color: 'var(--khaki-400)', marginTop: 2 }}>
+                <div style={{ fontSize: 12, color: 'var(--link)', marginTop: 2 }}>
                   {distanceToActive !== null ? formatDistance(distanceToActive) : '위치 확인 중…'}
                 </div>
               </div>
@@ -148,7 +148,7 @@ export default function MapScreen() {
                 도착 확인 →
               </button>
             </div>
-            <label style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 10, fontSize: 11, color: 'var(--ink-500)' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 10, fontSize: 11, color: 'var(--muted)' }}>
               <input type="checkbox" checked={devMode} onChange={toggleDevMode} />
               데모 모드 (실제 GPS 이동 없이 거점 도착 처리)
             </label>

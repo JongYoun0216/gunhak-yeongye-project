@@ -35,17 +35,17 @@ export default function WaypointArrivalScreen() {
   return (
     <div className="screen fade-in">
       <div style={{ textAlign: 'center', marginTop: 6 }}>
-        <span className="pill" style={{ background: 'rgba(232,185,35,0.15)', color: 'var(--gold-400)' }}>
+        <span className="pill" style={{ background: 'var(--accent-tint)', color: 'var(--accent)' }}>
           {wp.shortName} · 작전 구역
         </span>
         <h2 style={{ margin: '10px 0 2px' }}>{wp.name}</h2>
-        <p style={{ fontSize: 12, color: 'var(--ink-300)' }}>{wp.description}</p>
+        <p style={{ fontSize: 12, color: 'var(--fg-2)' }}>{wp.description}</p>
       </div>
 
       <div className="card" style={{ textAlign: 'center', margin: '16px 0' }}>
         <div style={{ fontSize: 26 }}>📍</div>
         <div style={{ fontWeight: 700, marginTop: 4 }}>작전 구역에 도착했습니다!</div>
-        <p style={{ fontSize: 12, color: 'var(--ink-300)', marginTop: 6 }}>
+        <p style={{ fontSize: 12, color: 'var(--fg-2)', marginTop: 6 }}>
           {isFinal
             ? '전원이 대형을 갖추고 단결 포즈를 취하면 최종 미션이 완료됩니다.'
             : '거점의 이야기를 확인하고 역할별 미션을 순서대로 수행하세요.'}
@@ -134,13 +134,13 @@ function MissionRow({
         alignItems: 'center',
         gap: 10,
         opacity: locked ? 0.5 : 1,
-        border: highlight ? '1px solid rgba(232,185,35,0.4)' : undefined,
+        border: highlight ? '1px solid var(--accent-tint)' : undefined,
       }}
     >
       <span style={{ fontSize: 20 }}>{done ? '✅' : locked ? '🔒' : meta.icon}</span>
       <div style={{ flex: 1 }}>
         <div style={{ fontSize: 13, fontWeight: 700 }}>{mission.title}</div>
-        <div style={{ fontSize: 11, color: 'var(--ink-500)' }}>
+        <div style={{ fontSize: 11, color: 'var(--muted)' }}>
           {meta.nameKo} · {mission.points}점
         </div>
       </div>

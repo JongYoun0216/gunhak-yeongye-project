@@ -73,14 +73,14 @@ export default function OcrMission({ mission, onExit }: { mission: MissionDef; o
 
   return (
     <MissionShell mission={mission} onClose={onExit}>
-      <div className="card" style={{ textAlign: 'center', padding: '18px 16px', marginBottom: 12, background: 'rgba(255,255,255,0.02)' }}>
-        <div style={{ fontSize: 11, color: 'var(--ink-500)', marginBottom: 6 }}>
+      <div className="card" style={{ textAlign: 'center', padding: '18px 16px', marginBottom: 12, background: 'var(--surface-2)' }}>
+        <div style={{ fontSize: 11, color: 'var(--muted)', marginBottom: 6 }}>
           현장 비문 (데모용 — 이 카드를 카메라로 비추세요)
         </div>
-        <div style={{ fontFamily: 'serif', fontSize: 26, letterSpacing: 4, color: 'var(--ink-100)' }}>
+        <div style={{ fontFamily: 'serif', fontSize: 26, letterSpacing: 4, color: 'var(--fg)' }}>
           金德齡 將軍
         </div>
-        <div style={{ fontSize: 13, marginTop: 4, color: 'var(--khaki-400)' }}>김덕령 장군</div>
+        <div style={{ fontSize: 13, marginTop: 4, color: 'var(--link)' }}>김덕령 장군</div>
       </div>
 
       {!cameraOn ? (
@@ -95,7 +95,7 @@ export default function OcrMission({ mission, onExit }: { mission: MissionDef; o
       )}
       <canvas ref={canvasRef} style={{ display: 'none' }} />
 
-      {error && <p style={{ color: 'var(--danger-500)', fontSize: 12, marginTop: 8 }}>{error}</p>}
+      {error && <p style={{ color: 'var(--danger)', fontSize: 12, marginTop: 8 }}>{error}</p>}
 
       {cameraOn && !done && (
         <button className="btn btn-primary" style={{ marginTop: 10 }} disabled={busy} onClick={handleCapture}>
@@ -104,7 +104,7 @@ export default function OcrMission({ mission, onExit }: { mission: MissionDef; o
       )}
 
       {recognizedText && !done && (
-        <p style={{ fontSize: 11, color: 'var(--ink-500)', marginTop: 8 }}>
+        <p style={{ fontSize: 11, color: 'var(--muted)', marginTop: 8 }}>
           인식된 텍스트: "{recognizedText}" — 다시 시도하거나 아래에서 직접 입력할 수 있습니다.
         </p>
       )}
@@ -124,8 +124,8 @@ export default function OcrMission({ mission, onExit }: { mission: MissionDef; o
       )}
 
       {done && (
-        <div className="card fade-in" style={{ marginTop: 12, borderColor: 'rgba(76,175,109,0.4)' }}>
-          <div style={{ fontWeight: 700, color: 'var(--success-500)' }}>✅ 비문 해독 성공: 김덕령</div>
+        <div className="card fade-in" style={{ marginTop: 12, borderColor: 'var(--success-tint)' }}>
+          <div style={{ fontWeight: 700, color: 'var(--success)' }}>✅ 비문 해독 성공: 김덕령</div>
         </div>
       )}
 

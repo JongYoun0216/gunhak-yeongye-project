@@ -31,9 +31,9 @@ export default function CommandDecisionMission({ mission, onExit }: { mission: M
               textAlign: 'left',
               border:
                 revealed && c.id === pickedId
-                  ? `1px solid ${c.correct ? 'var(--success-500)' : 'var(--danger-500)'}`
+                  ? `1px solid ${c.correct ? 'var(--success)' : 'var(--danger)'}`
                   : pickedId === c.id
-                    ? '1px solid var(--gold-500)'
+                    ? '1px solid var(--accent)'
                     : undefined,
             }}
             disabled={revealed}
@@ -45,11 +45,11 @@ export default function CommandDecisionMission({ mission, onExit }: { mission: M
       </div>
 
       {revealed && picked && (
-        <div className="card fade-in" style={{ marginTop: 12, background: 'rgba(232,185,35,0.08)' }}>
+        <div className="card fade-in" style={{ marginTop: 12, background: 'var(--accent-tint)' }}>
           <div style={{ fontWeight: 700, fontSize: 13, marginBottom: 4 }}>
             {picked.correct ? '✅ 역사 속 실제 선택' : 'ℹ️ 해설'}
           </div>
-          <p style={{ fontSize: 12, color: 'var(--ink-300)' }}>{picked.explain}</p>
+          <p style={{ fontSize: 12, color: 'var(--fg-2)' }}>{picked.explain}</p>
         </div>
       )}
 

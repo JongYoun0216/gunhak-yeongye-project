@@ -25,7 +25,7 @@ export default function ReconQrMission({ mission, onExit }: { mission: MissionDe
       {!scanning && !done && (
         <div className="card" style={{ textAlign: 'center', padding: 22 }}>
           <div style={{ fontSize: 34 }}>🏷️</div>
-          <p style={{ fontSize: 12.5, color: 'var(--ink-300)', margin: '10px 0' }}>
+          <p style={{ fontSize: 12.5, color: 'var(--fg-2)', margin: '10px 0' }}>
             운영진이 현장에 숨겨둔 QR 표식을 카메라로 스캔하세요. (오픈소스: html5-qrcode)
           </p>
           <button className="btn btn-secondary btn-sm" onClick={() => setShowTarget((v) => !v)}>
@@ -44,9 +44,9 @@ export default function ReconQrMission({ mission, onExit }: { mission: MissionDe
       )}
 
       {done && (
-        <div className="card fade-in" style={{ textAlign: 'center', padding: 22, borderColor: 'rgba(76,175,109,0.4)' }}>
+        <div className="card fade-in" style={{ textAlign: 'center', padding: 22, borderColor: 'var(--success-tint)' }}>
           <div style={{ fontSize: 34 }}>✅</div>
-          <p style={{ fontWeight: 700, color: 'var(--success-500)', marginTop: 8 }}>표식 확보!</p>
+          <p style={{ fontWeight: 700, color: 'var(--success)', marginTop: 8 }}>표식 확보!</p>
         </div>
       )}
 

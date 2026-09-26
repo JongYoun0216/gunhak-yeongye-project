@@ -23,10 +23,12 @@ function ScreenLoading() {
 
 export default function App() {
   const phase = useGameStore((s) => s.phase);
+  // 시작/미션 완료 화면은 몰입형 Black 서피스, 그 외는 Fog 캔버스
+  const immersive = phase === 'start' || phase === 'mission-complete';
 
   return (
     <div className="app-shell">
-      <div className="phone-frame">
+      <div className={`phone-frame ${immersive ? 'dark' : ''}`}>
         <StatusBar />
         <Suspense fallback={<ScreenLoading />}>
           {phase === 'start' && <StartScreen />}

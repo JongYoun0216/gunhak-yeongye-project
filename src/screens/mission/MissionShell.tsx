@@ -22,7 +22,7 @@ export default function MissionShell({
           ✕
         </button>
         <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 11, color: 'var(--ink-500)' }}>
+          <div style={{ fontSize: 11, color: 'var(--muted)' }}>
             {meta.icon} {meta.nameKo}
             {step && totalSteps ? ` · ${step}/${totalSteps}` : ''}
           </div>
@@ -30,7 +30,7 @@ export default function MissionShell({
         </div>
       </div>
 
-      <p style={{ fontSize: 12.5, color: 'var(--ink-300)', lineHeight: 1.6, margin: '14px 0' }}>
+      <p style={{ fontSize: 12.5, color: 'var(--fg-2)', lineHeight: 1.6, margin: '14px 0' }}>
         {mission.briefing}
       </p>
 
